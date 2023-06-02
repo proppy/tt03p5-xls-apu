@@ -5,7 +5,7 @@ project:
   source_files:        
     - apu_pulse.v
     - top.v
-  top_module:  "tt_apu_pulse"
+  top_module:  "tt_um_apu_pulse"
   tiles: "1x1"
 
 yaml_version: 3.5
