@@ -1,8 +1,8 @@
---- 
+---
 # TinyTapeout project information
 project:
   wokwi_id: 0
-  source_files:        
+  source_files:
     - apu_pulse.v
     - top.v
   top_module:  "tt_um_apu_pulse"
@@ -10,24 +10,30 @@ project:
 
 yaml_version: 3.5
 
-documentation: 
+documentation:
   author:       "Johan Euphrosine"      # Your name
   title:        "XLS APU Pulse Oscillator"      # Project title
   language:     "XLS" # other examples include Verilog, Amaranth, VHDL, etc
   description:  "attempt at recreating the square oscillator from the NES APU with XLS"
 
   how_it_works: |
-      currently just implement the frequency and duty cycle control, see:
-      https://www.nesdev.org/wiki/APU_Pulse
+      currently just implement the base oscillator frequency and duty cycle control
+      see: https://www.nesdev.org/wiki/APU_Pulse
+      the other 4 oscillators are each tuned on different octave (see `how_to_test` below)
 
   how_to_test:  |
-      change the duty cycle using dedicated input 0-1
-      change the frequency using bidirectional input 0-10
+      change the frequency using dedicated input 0:7 + bidirectional input 0:2
+      change the duty cycle using dedicated input 3:4
       pull valid input signal high
       pull ready input signal high
-      monitor waveforms: period on dedicated output 0, period*2 on dedicated output 4, period/2 on dedicated output 6
+      monitor waveforms:
+        period on dedicated output 0
+        period*2 on dedicated output 4
+        period/2 on dedicated output 5
+        period*4 on dedicated output 6
+        period/4 on dedicated output 7
 
-  inputs:               
+  inputs:
     - pulse 1 period  0/10
     - pulse 1 period  1/10
     - pulse 1 period  2/10
@@ -42,9 +48,9 @@ documentation:
     - period ready output flag
     - duty ready output flag
     - signal 1
-    - signal 1 valid output flag
     - signal 2
-    - signal 2 valid output flag
+    - signal 3
+    - signal 4
   bidirectional:
     - pulse 1 period  8/10
     - pulse 1 period  9/10
