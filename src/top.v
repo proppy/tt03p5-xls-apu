@@ -33,13 +33,45 @@ module tt_um_apu_pulse (
    wire 		  duty_valid = uio_in[6];
    wire 		  duty_ready = uo_out[3];
    
-   wire 		  signal = uo_out[0];
-   wire 		  signal_valid = uo_out[1];
-   wire 		  signal_ready = uio_in[7];
+   wire 		  signal0 = uo_out[0];
+   wire 		  signal0_valid = uo_out[1];
+   wire 		  signal0_ready = uio_in[7];
    
+   wire 		  signal1 = uo_out[4];
+   wire 		  signal1_valid = uo_out[5];
+   wire 		  signal2_ready = uio_in[7];
+
+   wire 		  signal2 = uo_out[6];
+   wire 		  signal2_valid = uo_out[7];
+   wire 		  signal3_ready = uio_in[7];
+
    assign uio_oe = 8'h00;
    
    apu_pulse apu_pulse0(.clk(clk),
+			.reset(rst_n),
+			.apu__period_r(period),
+			.apu__period_r_vld(period_valid),
+			.apu__period_r_rdy(period_ready),
+			.apu__duty_r(duty),
+			.apu__duty_r_vld(duty_valid),
+			.apu__duty_r_rdy(duty_ready),			
+			.apu__output_s(signal),
+			.apu__output_s_vld(signal_valid),
+			.apu__output_s_rdy(signal_ready));
+
+   apu_pulse apu_pulse1(.clk(clk),
+			.reset(rst_n),
+			.apu__period_r(period),
+			.apu__period_r_vld(period_valid),
+			.apu__period_r_rdy(period_ready),
+			.apu__duty_r(duty),
+			.apu__duty_r_vld(duty_valid),
+			.apu__duty_r_rdy(duty_ready),			
+			.apu__output_s(signal),
+			.apu__output_s_vld(signal_valid),
+			.apu__output_s_rdy(signal_ready));
+
+   apu_pulse apu_pulse2(.clk(clk),
 			.reset(rst_n),
 			.apu__period_r(period),
 			.apu__period_r_vld(period_valid),

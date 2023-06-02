@@ -37,14 +37,14 @@ documentation:
     - pulse 1 period  6/10
     - pulse 1 period  7/10
   outputs:
-    - signal
-    - signal valid output flag
+    - signal 0
+    - signal 0 valid output flag
     - period ready output flag
     - duty ready output flag
-    - none
-    - none
-    - none
-    - none
+    - signal 1
+    - signal 1 valid output flag
+    - signal 2
+    - signal 2 valid output flag
   bidirectional:
     - pulse 1 period  8/10
     - pulse 1 period  9/10
