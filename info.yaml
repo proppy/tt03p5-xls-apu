@@ -25,7 +25,7 @@ documentation:
       change the frequency using bidirectional input 0-10
       pull valid input signal high
       pull ready input signal high
-      monitor waveform on dedicted output 0
+      monitor waveforms: period on dedicated output 0, period*2 on dedicated output 4, period/2 on dedicated output 6
 
   inputs:               
     - pulse 1 period  0/10
