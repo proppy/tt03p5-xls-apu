@@ -58,7 +58,7 @@ documentation:
 # The following fields are optional
   tag:          "music, synth, famicom, oscillator"
   external_hw:  "ADC, pots, speaker"
-  discord:      "proppy"
+  discord:      "@proppy"
   doc_link:     "https://colab.research.google.com/gist/proppy/72b51551ac736abbcfc4cadd51a9adeb/xls_audio_playground.ipynb"
   clock_hz:     117295
   picture:      "wave.png"
