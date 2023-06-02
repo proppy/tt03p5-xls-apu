@@ -39,11 +39,11 @@ module tt_um_apu_pulse (
    
    wire 		  signal1 = uo_out[4];
    wire 		  signal1_valid = uo_out[5];
-   wire 		  signal2_ready = uio_in[7];
+   wire 		  signal1_ready = uio_in[7];
 
    wire 		  signal2 = uo_out[6];
    wire 		  signal2_valid = uo_out[7];
-   wire 		  signal3_ready = uio_in[7];
+   wire 		  signal2_ready = uio_in[7];
 
    assign uio_oe = 8'h00;
    
@@ -57,7 +57,7 @@ module tt_um_apu_pulse (
 			.apu__duty_r_rdy(duty_ready),			
 			.apu__output_s(signal0),
 			.apu__output_s_vld(signal0_valid),
-			.apu__output_s_rdy(signal1_ready));
+			.apu__output_s_rdy(signal0_ready));
 
    apu_pulse apu_pulse1(.clk(clk),
 			.reset(rst_n),
