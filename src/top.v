@@ -27,22 +27,30 @@ module tt_um_apu_pulse (
 
    wire [10:0] 		  period = {uio_in[2:0], ui_in[7:0]};
    wire 		  period_valid = uio_in[5];
-   wire 		  period_ready = uo_out[2];
+   wire 		  period_ready;
+   assign uo_out[2] = period_ready;
    
    wire [1:0] 		  duty = uio_in[4:3];
    wire 		  duty_valid = uio_in[6];
-   wire 		  duty_ready = uo_out[3];
+   wire 		  duty_ready;
+   assign uo_out[3] = duty_ready;
    
-   wire 		  signal0 = uo_out[0];
-   wire 		  signal0_valid = uo_out[1];
+   wire 		  signal0;
+   assign uo_out[0] = signal0;
+   wire 		  signal0_valid;
+   assign uo_out[1] = signal0_valid;
    wire 		  signal0_ready = uio_in[7];
    
-   wire 		  signal1 = uo_out[4];
-   wire 		  signal1_valid = uo_out[5];
+   wire 		  signal1;
+   assign uo_out[4] = signal1;
+   wire 		  signal1_valid;
+   assign uo_out[5] = signal1_valid;
    wire 		  signal1_ready = uio_in[7];
 
-   wire 		  signal2 = uo_out[6];
-   wire 		  signal2_valid = uo_out[7];
+   wire 		  signal2;
+   assign uo_out[6] = signal2;
+   wire 		  signal2_valid;
+   assign uo_out[7] = signal2_valid;
    wire 		  signal2_ready = uio_in[7];
 
    assign uio_oe = 8'h00;
@@ -83,4 +91,4 @@ module tt_um_apu_pulse (
 			.apu__output_s_vld(signal2_valid),
 			.apu__output_s_rdy(signal2_ready));
 
-endmodule // tt_um_example
+endmodule // tt_um_apu_pulse
