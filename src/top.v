@@ -55,32 +55,32 @@ module tt_um_apu_pulse (
 			.apu__duty_r(duty),
 			.apu__duty_r_vld(duty_valid),
 			.apu__duty_r_rdy(duty_ready),			
-			.apu__output_s(signal),
-			.apu__output_s_vld(signal_valid),
-			.apu__output_s_rdy(signal_ready));
+			.apu__output_s(signal0),
+			.apu__output_s_vld(signal0_valid),
+			.apu__output_s_rdy(signal1_ready));
 
    apu_pulse apu_pulse1(.clk(clk),
 			.reset(rst_n),
-			.apu__period_r(period),
+			.apu__period_r(period << 1),
 			.apu__period_r_vld(period_valid),
 			.apu__period_r_rdy(period_ready),
 			.apu__duty_r(duty),
 			.apu__duty_r_vld(duty_valid),
 			.apu__duty_r_rdy(duty_ready),			
-			.apu__output_s(signal),
-			.apu__output_s_vld(signal_valid),
-			.apu__output_s_rdy(signal_ready));
+			.apu__output_s(signal1),
+			.apu__output_s_vld(signal1_valid),
+			.apu__output_s_rdy(signal1_ready));
 
    apu_pulse apu_pulse2(.clk(clk),
 			.reset(rst_n),
-			.apu__period_r(period),
+			.apu__period_r(period >> 1),
 			.apu__period_r_vld(period_valid),
 			.apu__period_r_rdy(period_ready),
 			.apu__duty_r(duty),
 			.apu__duty_r_vld(duty_valid),
 			.apu__duty_r_rdy(duty_ready),			
-			.apu__output_s(signal),
-			.apu__output_s_vld(signal_valid),
-			.apu__output_s_rdy(signal_ready));
+			.apu__output_s(signal2),
+			.apu__output_s_vld(signal2_valid),
+			.apu__output_s_rdy(signal2_ready));
 
 endmodule // tt_um_example
