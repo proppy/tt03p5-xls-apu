@@ -25,7 +25,7 @@ module tt_um_apu_pulse (
 	input  wire       rst_n
 );
 
-   wire [10:0] 		  period = uio_in[2:0] ++ ui_in[7:0];
+   wire [10:0] 		  period = {uio_in[2:0], ui_in[7:0]};
    wire 		  period_valid = uio_in[5];
    wire 		  period_ready = uo_out[2];
    
